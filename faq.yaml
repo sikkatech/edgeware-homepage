@@ -18,16 +18,15 @@ en:
       answer: |
         Edgeware is an exciting new project, and will be one of the first chains launched on Parity’s 
         Substrate platform. While we applaud the testing of a novel form of distribution, (the lockdrop),
-        the design of signalling in the Edgeware lockdrop leads to many edge conditions that delegitimize
-        the lockdrop and centralizes the initial distribution. To ensure a balanced token model that is
-        both legitimate and inclusive of both lockdrop and signal participants, a number of distribution
-        improvements have been made prior to genesis.
+        the design of signalling in the EEdgeware lockdrop leads to many edge conditions that may hamper the optimal
+        distribution of tokens and may increase the centralization of shareholdership. We offer our pre-genesis design for a
+        balanced token model that is more inclusive of lockdrop and signal participants:
 
         1. Remove Signalling on Behalf of Contracts
 
         2. Remove Generalized Locking
 
-        3. All signalled funds distributed in genesis
+        3.  All token allocations to signallers distributed fully at genesis.
 
     - question: Why is getting the initial distribution right important?
       answer: |
@@ -37,13 +36,13 @@ en:
         an initial token distribution favor certain parties, dominant voting groups and blocks will
         continue to increase their power and distribution over time, shaping the future of any such ecosystem.
 
-    - question: What's the issue with signalling on behalf of contracts?
+    - question: What's the issue with signaling on behalf of contracts?
       answer: |
         Allowing contract deployers to signal on behalf of contracts is a fundamental misunderstanding of
         the premise of smart contracting systems. Smart contracts are meant to be autonomous software that
         are independent of their initial deployer. For example, in the Golem and the Digix project multi-sigs,
         two of the largest in the Ethereum ecosystem, the deployer of the contract isn't even a member of the
-        multisig, yet is able to signal on behalf of all of funds. The same is true for many of the largest
+        multisig, yet is able to signal on behalf of all of the funds therein. The same is true for many of the largest
         contracts on Ethereum, like the Wrapped Ether (WETH) contract, and we wanted to make this right in Straightedge.
 
 
@@ -54,15 +53,16 @@ en:
         msg.value greater than 0 for the entirety of the 3, 6 or 12-month lock durations”,
         and in these cases “that signal can be treated as a lock for the purposes of the allocation award”. 
 
-        By removing the ability to signal on behalf of a contract, Straightedge has solved for Generalized
-        Locks and other edge case vulnerabilities. However, it is still worth explicitly pointing out some
+        By removing the ability to signal on behalf of a contract, Straightedge has ntended to reduce vulnerabilities by
+        simplifying the distribution mechanism.  However, it is still worth explicitly pointing out some
         of the issues with the policy. First, it places undue burden upon the launchers of the network to
         audit and decide on different generalized lock contracts, which may contain edge cases such as
         bypassing locking by issuing derivatives of the locked Ether (such as with WETH). Further, if a
         contract does not correctly lock, or if code claiming to be a lock bypasses detection through
         underhanded Solidity techniques, it could break the legitimacy of the initial distribution of
-        the entire network. Removing generalized locking removes the necessity for case-by-case decision-making
-        by a launch-team, and other edge case vulnerabilities.
+        the entire network. While Edgeware’s contract codes have been fully audited by Quantstamp,  Removing generalized
+        locking removes the necessity for case-by-case decision-making by a launch-team, and other potential edge case
+        vulnerabilities.
 
 
     - question: Were these faulty design decisions made in Edgeware to allow distribution to the victims of locked funds in the November 2017 Parity Multisig Exploit?
@@ -70,17 +70,17 @@ en:
         The Web3 Foundation, the largest victim of the Parity bug, has a very close relationship
         with the Edgeware project, and it is likely it is due to the influence of the Web3 Foundation
         that these odd design decisions were made in the construction of the Edgeware lockdrop. But in
-        trying to right a wrong by recovering funds, design decisions were made that could threaten
-        the legitimacy of the project as a whole.
+        trying to right a wrong by recovering funds, design decisions were made that could hamper the effectiveness of the
+        project as a whole.
         
         Let’s be clear: Like many in the community, we feel for groups like the Web3 Foundation,
         and others affected by these attacks, but an open system of governance is one in which the
         people have a say, while a system in which rules are changed to provide select parties with
         powerful voting shares is not open. In the case of Edgeware, the potential for an open-future
         was impeded prior to launch by late-stage changes to a token distribution model that aimed to
-        artificially provide favor to a small, select group of individuals and teams. The result would
-        provide a substantial voting-percentage of all network-tokens to a party or parties not in control
-        of the funds for which tokens are rewarded.
+        provide favor to several small, select group of individuals and teams. While the changes were disclosed before the
+        lockdrop began The result would provide an estimated 9% substantial voting-percentage of all network-tokens to a
+        party or parties not in full control of the funds for which tokens are rewarded.
         
         Nonetheless, the Web3 Foundation's support in funding the development of Parity Substrate
         (the framework upon which Straightedge is built) is undeniable. To that end, possible ways
@@ -115,14 +115,16 @@ en:
 
     - question: How are STR tokens distributed?
       answer: |
-        Lockdrop and signal participants will receive 90% of STR tokens, with the exception of contributions
-        through signalling on behalf of a contract. The remaining 10% of distribution will be allocated as
+        The proportions of the Straightedge genesis block distribution mirror the proportions of Edgeware Lockdrop and
+        signal participants will receive 90% of STR tokens, with the exception of contributions
+        through signalling on behalf of a contract. The remaining 10% of the distribution will be allocated as
         a founders’ reward to entities contributing to the launch of the Straightedge project.
 
     - question: What if I want to learn more about the lockdrop or technical details?
       answer: |
-        Please review the Edgeware FAQs where you can learn more about the lockdrop contracts,
-        the Straightedge software, and incentives for validation.
+        Since Straightedge is a new project and a fork, we rely upon the efforts of the Edgeware developers for our
+        documentatione At their site, https://edgewa.re, you can review the Edgeware FAQs where you can learn more about the
+        lockdrop contracts, the software that Straightedge is based upon, and their incentives for validation.
         
         https://edgewa.re/faq/
 
