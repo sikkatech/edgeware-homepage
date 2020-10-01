@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Straightedge</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/config.js"></script>
+		<script src="js/skel.min.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/skel-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+		</noscript>
+	</head>
+	<script type="text/javascript">
+
+	function addListener(element, type, callback) {
+		if (element.addEventListener) {
+			element.addEventListener(type, callback);
+		} else if (element.attachEvent) {
+			element.attachEvent('on' + type, callback);
+		}
+	}
+
+	addListener(document, 'DOMContentLoaded', function () {
+		
+		var mq = window.matchMedia("(max-width: 760px)");
+		if (mq.matches) {
+			document.getElementById("menu_list").classList.add("hidden");
+		} 
+
+		addListener(document.getElementById("menu_button"), 'click', function () {
+			document.getElementById("menu_list").classList.toggle("hidden");
+		});
+		
+		addListener(document.getElementById("menu_button"), 'click', function () {
+			document.getElementById("body").classList.toggle("hidden2");
+		});
+		
+		
+		addListener(window, 'resize', function () {
+			var width = window.innerWidth ||
+						document.documentElement.clientWidth ||
+						document.body.clientWidth;
+			
+			if (width > 760) {
+				document.getElementById("menu_list").classList.remove("hidden");
+			} else {
+				document.getElementById("menu_list").classList.add("hidden");
+			}
+		});
+		
+	});
+</script>
+	<body id="body">
+
+		<!-- Header -->
+		<div class="header container">
+			<div class="logo">
+				<div  id="logo">
+					<a href="index.html" style="margin:0px">
+						<img src="images/header_logo.png" />
+					</a>
+				</div>
+			</div>
+			<nav>
+				<div id="menu_button_wrapper">
+				<div id="menu_button">
+					
+					<input type="checkbox">
+				</div>
+		<div class="clearfix"></div>
+	</div>
+	<ul id="menu_list">
+		<li class="current_page"><a href="mainnet_documentation.html">Mainnet</a></li>
+		<li><a href="mnemonic.html">Transaction</a></li>
+		<li id="last"><a href="http://explorer.straighted.ge/">Explorer</a></li>
+			<div class="nav-icon-share">
+							<a class="ico_weixin" href="https://discord.com/invite/akVk9PT">
+								<img src="images/ico_weixin.png"/>
+							</a>
+							<a class="ico_twitter" href="https://twitter.com/heystraightedge">
+								<img src="images/ico_twitter.png"/>
+							</a>
+							<a class="ico_github" href="https://github.com/heystraightedge/straightedge">
+								<img src="images/ico_github.png"/>
+							</a>
+						
+	</div>
+	</ul>
+
+</nav>
+			<div class="icon-share">
+				<a class="ico_weixin" href="https://discord.com/invite/akVk9PT">
+					<img src="images/ico_weixin.png"/>
+				</a>
+				<a class="ico_twitter" href="https://twitter.com/heystraightedge">
+					<img src="images/ico_twitter.png"/>
+				</a>
+				<a class="ico_github" href="https://github.com/heystraightedge/straightedge">
+					<img src="images/ico_github.png"/>
+				</a>
+				
+			</div>
+		</div>
+		<!-- Home -->
+			<div class="wrapper wrapper-first">
+				<article class="container" id="top">
+					<div class="row mainnet">
+						<div class="u">
+							<header>
+								<h1>STRAIGHTEDGE MAINNET LAUNCH</h1>
+							</header>
+							<div class="2u">
+							<img src="images/ico_arrow.png"/>
+							</div>
+							<div class="9u">
+							<p>This repository is to coordinate the launch of the Straightedge mainnet, rebuilt on the Cosmos SDK. Straightedge is a general-purpose smart contracting platform governed by the holders of the STR token.</p>
+							<p>The codebase can be found <a href="https://github.com/heystraightedge/straightedge"><span class="blue">here.</span></a></p>
+							</div>
+						</div>
+						
+					</div>
+					<div class="row mainnet">
+						<div class="5u">
+						<div class="u">
+							<header>
+								<h2>Community</h2>
+							</header>
+							<div class="2u">
+							<img src="images/ico_arrow.png"/>
+							</div>
+							<div class="3u t1">
+							<p>To join the community and stay up to date on the latest information on the Straightedge launch, please join the <a href="https://discord.gg/rbamhbC"><span class="blue">Discord.</span></a> If you're interested in running a validator, please join the #validators channel!</p>
+							</div>
+						</div>
+						</div>
+						<div class="5u">
+						<div class="u">
+							<header>
+								<h2>Recreating Pre-Genesis</h2>
+							</header>
+							<div class="2u">
+							<img src="images/ico_arrow.png"/>
+							</div>
+							<div class="3u">
+							<p>If you wish to verify the generation of pregenesis.json yourself, follow the steps <a href="https://github.com/heystraightedge/launch/blob/master/building-pregenesis/README.md"><span class="blue">here.</span></a></p>
+							</div>
+						</div>
+						</div>
+						
+					</div>
+					<div class="row mainnet">
+						<div class="u">
+							<header>
+								<h2>STR Token</h2>
+							</header>
+							<div class="2u">
+							<img src="images/ico_arrow.png"/>
+							</div>
+							<div class="9u">
+							<p>The native token of the Straightedge network is known as STR.</p>
+							<p>The initial supply of the STR token is 5 billion STR. Of this, 90% is distributed based on the participation from the Edgeware lockdrop, modified to ignore signals from deployers of contracts. Further details about this matter can be found in this <a href="https://straighted.ge/faq/"><span class="blue">FAQ.</span></a></p>
+							<p>In Edgeware, 10% of the initial distribution was distributed as a founder's reward to Commonwealth Labs, Parity Technologies, and a community fund managed by Commonwealth Labs. In the initial Straightedge distribution, this 10% (500 million tokens) is deposited directly into the on-chain governed community pool. It is encouraged that this be distributed by governance as a founder's reward to entities that were instrumental in the creation of the Straightedge network.</p>
+							<p>Just like the smallest unit of Bitcoin and Ether are satoshis and wei respectively, the smallest unit of STR is an astr (atto-STR). There are 10^18 astr in 1 STR.</p>
+							</div>
+						</div>
+					</div>
+					<div class="row mainnet">
+						<div class="5u">
+						<div class="u">
+							<header>
+								<h2>Claiming Tokens</h2>
+							</header>
+							<div class="2u">
+							<img src="images/ico_arrow.png"/>
+							</div>
+							<div class="3u t1">
+							<p>If you have tokens in the genesis file, and you wish to convert them into a key type that works with wallets, see this page</p>
+							</div>
+						</div>
+						</div>
+						<div class="5u">
+						<div class="u">
+							<header>
+								<h2>Delegation</h2>
+							</header>
+							<div class="2u">
+							<img src="images/ico_arrow.png"/>
+							</div>
+							<div class="3u">
+							<p>To delegate your STR token to a validator, use the strcli tx staking delegate command. Validator addresses to delegate to can be found on any explorer, such as </p>
+							<p><a href="http://explorer.straighted.ge/"><span class="blue">http://explorer.straighted.ge/</span></a></p>
+							</div>
+						</div>
+						</div>
+						
+					</div>
+					<div class="row mainnet">
+						<div class="u">
+							<header>
+								<h2>Functionality</h2>
+							</header>
+							<div class="2u">
+							<img src="images/ico_arrow.png"/>
+							</div>
+							<div class="9u">
+							<p>Similar to the <a href="https://www.cosmwasm.com"><span class="blue">Cosmos Hub codebase (Gaia),</span></a> the Straightedge blockchain inherits much of its functionality from the <a href="https://www.cosmwasm.com"><span class="blue">core modules of the cosmos sdk.</span></a> It uses the standard bank, staking, slashing, governance, upgrade, and crisis modules of the Cosmos SDK.</p>
+							<p>It also includes the <a href="https://www.cosmwasm.com"><span class="blue">CosmWasm module,</span></a> a project built to allow WebAssembly-based smart contracting in the Cosmos SDK. For more information of CosmWasm and tutorials on how to get started with using it, please check out the <a href="https://www.cosmwasm.com"><span class="blue">CosmWasm website.</span></a></p>
+							<p>In the future, it is possible for the Straightedge to upgrade to support more smart contracting systems, such as the Cosmos SDK's <a href="https://www.cosmwasm.com"><span class="blue">EVM module.</span></a></p>
+							<p>In order to support the hard spoon of Edgeware lockdrop balances, we needed to add support of the SR25519 keys into the Cosmos SDK. We would like to give special thanks to ChainSafe team for their help on some of this work.</p>
+							<p>For instructions on how to add your lockdrop keys to the Straightedge CLI wallet, please follow the instructions <a href="https://www.cosmwasm.com"><span class="blue">here.</span></a></p>
+							</div>
+						</div>
+					</div>
+					<div class="row mainnet">
+						<div class="u">
+							<header>
+								<h2>Disclaimer</h2>
+							</header>
+							<div class="2u">
+							<img src="images/ico_arrow.png"/>
+							</div>
+							<div class="9u">
+							<p>Please note that the Straightedge blockchain is highly experimental software. In these early days, we can expect to have issues, updates, and bugs. The existing tools require advanced technical skills and involve risks which are outside of the control of the developers. Any use of this open source Apache 2.0 licensed software is done at your own risk and on a “AS IS” basis, without warranties or conditions of any kind, and any and all liability of the developers for damages arising in connection to the software is excluded. Please exercise extreme caution!</p>
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+
+	<footer>
+						<div class="container">
+						<div class="fotter_icon-share">
+							<a class="ico_weixin" href="https://discord.com/invite/akVk9PT">
+								<img src="images/ico_weixin.png"/>
+							</a>
+							<a class="ico_twitter" href="https://twitter.com/heystraightedge">
+								<img src="images/ico_twitter.png"/>
+							</a>
+							<a class="ico_github" href="https://github.com/heystraightedge/straightedge">
+								<img src="images/ico_github.png"/>
+							</a>
+						
+						</div>
+						<div class="cc">
+						<p>© 2020 Straightedge Launch Community</p>
+						</div>	
+						</div>
+					</footer>
+			
+
+		
+</body>
+</html>

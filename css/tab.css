@@ -1,0 +1,7 @@
+.box{width:302px;height:302px;border:1px solid #e5e5e5;margin:300px 40%;}
+.box .title{width:302px;height:35px; line-height: 35px;overflow: hidden;text-align: center;border-bottom:1px solid #e5e5e5;}
+.box .title a{width:100px;float:left;line-height:35px;border-right:1px solid #e5e5e5;}
+.box .title a:last-child{border-right:none;}
+.box ul li{text-align: center;margin-top: 100px;}
+.box ul li{text-align: center;margin-top: 100px;}
+#top .box h1 {margin-top: auto !important;}
