@@ -7,15 +7,15 @@
 
 	h1
 	{
-		font-size: 4.1em;
-		letter-spacing: -0.025em;
+		font-size: 3.6em;
+		
 		line-height: initial;
 	}
 
 	h2
 	{
-		font-size: 2.6em;
-		letter-spacing: -0.015em;
+		font-size: 2.3em;
+		
 	}
 	
 	h3
@@ -72,12 +72,12 @@
 		{
 			font-size: 1.5em;
 			letter-spacing: -0.025em;
-			margin-top: 40px;
+			
 		}
 
 	.box
 	{
-		padding: 2em 2em 2.5em 2em;
+		padding: 2em 3em 2.5em 3em;
 	}
 
 		.box h3
@@ -99,10 +99,13 @@
 			margin: -4em 0 4em -4em;
 			width: auto;
 		}
+
+
 .box p{
 	text-align: justify;
 	font-size: 1.1em;
 }
+
 
 /*********************************************************************************/
 /* Wrappers                                                                      */
@@ -185,7 +188,7 @@
 		#top p
 		{
 			font-size: 1.1em;
-			line-height: 1.75em;
+			line-height: 1.3em;
 		}
 		
 	#contact
@@ -201,8 +204,9 @@
 .community .text{
 	width: 558px;
     margin: auto;
-    text-align: justify;
+    
 	font-size: 1.1em;
+	margin-bottom: 2em;
 }
 .community{
 	margin-top: 60px;

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Straightedge</title>
+		<title>Straighted</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -15,28 +15,92 @@
 			<link rel="stylesheet" href="css/style-desktop.css" />
 		</noscript>
 	</head>
-	<body>
+	<script type="text/javascript">
+
+	function addListener(element, type, callback) {
+		if (element.addEventListener) {
+			element.addEventListener(type, callback);
+		} else if (element.attachEvent) {
+			element.attachEvent('on' + type, callback);
+		}
+	}
+
+	addListener(document, 'DOMContentLoaded', function () {
+		
+		var mq = window.matchMedia("(max-width: 760px)");
+		if (mq.matches) {
+			document.getElementById("menu_list").classList.add("hidden");
+		} 
+
+		addListener(document.getElementById("menu_button"), 'click', function () {
+			document.getElementById("menu_list").classList.toggle("hidden");
+		});
+		
+		addListener(document.getElementById("menu_button"), 'click', function () {
+			document.getElementById("body").classList.toggle("hidden2");
+		});
+		
+		
+		addListener(window, 'resize', function () {
+			var width = window.innerWidth ||
+						document.documentElement.clientWidth ||
+						document.body.clientWidth;
+			
+			if (width > 760) {
+				document.getElementById("menu_list").classList.remove("hidden");
+			} else {
+				document.getElementById("menu_list").classList.add("hidden");
+			}
+		});
+		
+	});
+</script>
+	<body id="body">
 
 		<!-- Header -->
+	
 		<div class="header container">
 			<div class="logo">
 				<div  id="logo">
-					<a href="" style="margin:0px">
+					<a href="index.html" style="margin:0px">
 						<img src="images/header_logo.png" />
 					</a>
 				</div>
 			</div>
+			<nav>
+				<div id="menu_button_wrapper">
+				<div id="menu_button">
+					
+					<input type="checkbox">
+				</div>
+		<div class="clearfix"></div>
+	</div>
+	<ul id="menu_list">
+		<li class="current_page"><a href="mainnet_documentation.html">Mainnet</a></li>
+		<li><a href="mnemonic.html">Transaction</a></li>
+		<li id="last"><a href="http://explorer.straighted.ge/">Explorer</a></li>
+		<div class="nav-icon-share">
+			<a class="ico_weixin" href="https://discord.com/invite/akVk9PT">
+				<img src="images/ico_weixin.png"/>
+			</a>
+			<a class="ico_twitter" href="https://twitter.com/heystraightedge">
+				<img src="images/ico_twitter.png"/>
+			</a>
+			<a class="ico_github" href="https://github.com/heystraightedge/straightedge">
+				<img src="images/ico_github.png"/>
+			</a>			
+		</div>
+	</ul>
+
+</nav>
 			<div class="icon-share">
-				<a class="ico_explorer" href="http://explorer.straighted.ge" target="_blank">
-					<img src="images/ico_explorer.png"/>
-				</a>
-				<a class="ico_weixin" href="https://discord.com/invite/akVk9PT" target="_blank">
+				<a class="ico_weixin" href="https://discord.com/invite/akVk9PT">
 					<img src="images/ico_weixin.png"/>
 				</a>
-				<a class="ico_twitter" href="https://twitter.com/heystraightedge" target="_blank">
+				<a class="ico_twitter" href="https://twitter.com/heystraightedge">
 					<img src="images/ico_twitter.png"/>
 				</a>
-				<a class="ico_github" href="https://github.com/heystraightedge/straightedge" target="_blank">
+				<a class="ico_github" href="https://github.com/heystraightedge/straightedge">
 					<img src="images/ico_github.png"/>
 				</a>
 				
@@ -95,7 +159,7 @@
 									<span class="icon featured-icon icon-thumbs-up"></span>
 									<img src="images/ico_buidl.png"/>
 									<h3>BUIDL</h3>
-									<p>If you'd like to learn how to build CosmWasm smart contracts on the Straightedge plaform, follow <a href="https://docs.cosmwasm.com/getting-started/intro.html"><span class="yellow">this tutorial.</span></a></p>
+									<p>If you'd like to learn how to build CosmWasm smart contracts on the Straightedge plaform, follow <a href="https://www.cosmwasm.com/docs/intro/overview"><span class="yellow">this tutorial.</span></a></p>
 								</section>
 							</div>
 							<div class="6u">
@@ -103,7 +167,7 @@
 									<span class="icon featured-icon icon-thumbs-up"></span>
 									<img src="images/ico_learn.png"/>
 									<h3>LEARN</h3>
-									<p>If you're interested in learning more about the origins of the Straightedge project and its genesis distribution, <a href="https://medium.com/straightedge/straightedge-distribution-faq-9298b8909932"><span class="yellow">click here.</span></a></p>
+									<p>If you're interested in learning more about the origins of the Straightedge project and its genesis distribution, <a href="https://straighted.ge/faq/"><span class="yellow">click here.</span></a></p>
 								</section>
 							</div>
 						</div>
@@ -114,7 +178,7 @@
 						<p class="bottom"></p>
 						
 						</header>
-						<p class="text">We hang out on the Straightedge Discord.  Join us!</p>
+						<p class="text">We hang out on the Straightedge Discord. Join us!</p>
 						<a href="https://discord.com/invite/akVk9PT" class="button button-big">JOIN DISCORD</a>
 					</div>
 					<footer>
