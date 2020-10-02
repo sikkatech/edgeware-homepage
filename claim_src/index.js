@@ -1,11 +1,9 @@
 'use strict';
 import {
-  cryptoWaitReady,
-  mnemonicGenerate,
-  mnemonicToEntropy,
   mnemonicValidate,
   mnemonicToMiniSecret,
-  schnorrkelKeypairFromSeed
+  schnorrkelKeypairFromSeed,
+  keyFromPath, keyExtractSuri
 } from '@polkadot/util-crypto';
 
 import { sr25519Sign } from '@heystraightedge/wasm-crypto';
@@ -18,10 +16,7 @@ import { assert, u8aToU8a } from '@polkadot/util';
 import {
   Bip39,
   EnglishMnemonic,
-  HdPath,
-  Random,
   Secp256k1,
-  Sha256,
   Slip10,
   Slip10Curve,
 } from "@cosmjs/crypto";
@@ -38,14 +33,7 @@ import {
   setupBankExtension,
   makeCosmoshubPath,
   rawSecp256k1PubkeyToAddress,
-  makeStdTx,
-  Msg,
-  Coin,
   isMsgSend,
-  StdFee,
-  makeSignDoc,
-  serializeSignDoc,
-  StdSignDoc,
 } from "@cosmjs/launchpad";
 
 
@@ -121,16 +109,29 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
   importbutton.addEventListener('click', async () => {
-    var input = textbox.value;
+    var suri = textbox.value.trim();
 
-    var mnem = input.split("/")[0];
+    try {
+      var extract = keyExtractSuri(suri);
+    } catch (error) {
+      alert("Invalid mnemonic, please paste it into textbox.");
+      return;
+    }
+    var mnem = extract.phrase;
+    var password = extract.password || "";
+    var path = extract.path;
+
     if (!mnemonicValidate(mnem)) {
       alert("Invalid mnemonic, please paste it into textbox.");
       return;
     }
+    var entropy = mnemonicToMiniSecret(mnem, password);
+    sr_keypair = schnorrkelKeypairFromSeed(entropy);
+    if (path.length > 0) {
+      sr_keypair = keyFromPath(sr_keypair, path, 'sr25519')
+    }
+    console.log(sr_keypair);
 
-    const keyring = new Keyring({ type: 'sr25519' });
-    sr_keypair = keyring.addFromUri(mnem);
 
     // Get sr25519 address
     var hash = sha256.create();
@@ -245,7 +246,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const std_sig = encodeStdSignature(sr_keypair.publicKey, sr_raw_sig)
     console.log(std_sig);
 
-    // const tx = makeStdTx(signDoc, sr_sig);
     const tx = {
       msg: signDoc.msgs,
       fee: signDoc.fee,
