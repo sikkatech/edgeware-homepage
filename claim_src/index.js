@@ -26,6 +26,8 @@ import {
   Slip10Curve,
 } from "@cosmjs/crypto";
 
+import { Keyring } from '@polkadot/api';
+
 var bigInt = require("big-integer");
 
 import {
@@ -119,14 +121,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
   importbutton.addEventListener('click', async () => {
-    var mnem = textbox.value;
+    var input = textbox.value;
+
+    var mnem = input.split("/")[0];
     if (!mnemonicValidate(mnem)) {
       alert("Invalid mnemonic, please paste it into textbox.");
       return;
     }
-    var password = "";
-    var entropy = mnemonicToMiniSecret(mnem, password);
-    sr_keypair = schnorrkelKeypairFromSeed(entropy);
+
+    const keyring = new Keyring({ type: 'sr25519' });
+    sr_keypair = keyring.addFromUri(mnem);
 
     // Get sr25519 address
     var hash = sha256.create();
@@ -259,7 +263,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     $("#loader").hide();
 
-    await sleep(2000);
+    await sleep(3000);
 
 
     window.open("http://explorer.straighted.ge/transactions/" + result.transactionHash);
