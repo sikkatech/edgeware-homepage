@@ -110,7 +110,7 @@ p, ul, ol, dl, table {
     height: 100%;
 	    z-index: 2;
 }
-#test {
+.test {
     width: 100%;
     min-height: 2.8em;
     max-height: 2.8em;
@@ -119,7 +119,7 @@ p, ul, ol, dl, table {
     overflow-y: auto;
     -webkit-user-modify: read-write-plaintext-only;
 }
-#test-2 {
+.test-2 {
     width: 100%;
     min-height: 1.3em;
     max-height: 1.3em;

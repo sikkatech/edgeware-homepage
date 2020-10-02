@@ -56,6 +56,7 @@
 					}, 1000);
 				});
 			}
+			return this;
 		},
 		setData: function() {
 			var tabCont_w = this.$tab_cont.width();

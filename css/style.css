@@ -300,7 +300,7 @@ width: 46em;
 .input_number-text::-webkit-scrollbar {
     display: none;
 }
-#test{
+.test{
             width: 100%;
             min-height:1.34em;
             max-height:1.34em;
