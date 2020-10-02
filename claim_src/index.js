@@ -55,7 +55,7 @@ const lcd_client = LcdClient.withExtensions(
 
 const cosmos_client = new CosmosClient(
   "http://straightedge.rpc.sikka.tech:1318",
-  BroadcastMode.Sync,
+  BroadcastMode.Block,
 );
 
 
@@ -104,6 +104,8 @@ function encodeStdSignature(pubkey, raw_sig) {
     signature: toBase64(raw_sig),
   };
 }
+
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
 var real_balance;
 var sr_addr;
@@ -249,11 +251,26 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log(tx);
     console.log(JSON.stringify(tx));
 
+    $("#loader").show();
+
     console.log("sending tx");
     var result = await cosmos_client.postTx(tx);
     console.log(result);
 
-    alert("Transaction sent.  See results at http://explorer.straighted.ge/transactions/" + result.transactionHash);
+    $("#loader").hide();
+
+    await sleep(2000);
+
+
+    window.open("http://explorer.straighted.ge/transactions/" + result.transactionHash);
+
+
+    if (window.confirm('Tx confirmed.  Click "ok" to see in explorer.')) 
+    {
+      window.location.href="http://explorer.straighted.ge/transactions/" + result.transactionHash;
+    };
+
+    // alert("Transaction sent.  See results at http://explorer.straighted.ge/transactions/" + result.transactionHash);
 
   });
 });
