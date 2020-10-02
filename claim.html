@@ -77,6 +77,8 @@
 
 <body id="body">
 
+	<div id="loader"></div>
+
 	<!-- Header -->
 	<div class="header container">
 		<div class="logo">
@@ -252,6 +254,7 @@
 			$("#sendpage").removeClass("on");
 			$("#sendpage").hide();
 			$(".importpage").show();
+			$("#loader").hide();
 		};
 
 		$("#importpage").click(function () {
