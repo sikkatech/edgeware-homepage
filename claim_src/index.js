@@ -48,13 +48,13 @@ import {
 
 
 const lcd_client = LcdClient.withExtensions(
-  { apiUrl: "http://straightedge.rpc.sikka.tech:1318" },
+  { apiUrl: "https://straightedge.rpc.sikka.tech:1318" },
   setupAuthExtension,
   setupBankExtension,
 );
 
 const cosmos_client = new CosmosClient(
-  "http://straightedge.rpc.sikka.tech:1318",
+  "https://straightedge.rpc.sikka.tech:1318",
   BroadcastMode.Block,
 );
 
