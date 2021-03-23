@@ -163,6 +163,12 @@ body{
 		
 	}
 
+	.box-2 a
+	{
+		color: #FCEC36;
+		
+	}
+
 		.box .image-full,.box-2 .imge-full
 		{
 			position: relative;
